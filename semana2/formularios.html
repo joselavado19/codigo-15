@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+</head>
+<body>
+    <h1>Registros de usuarios</h1>
+    <form action="" >
+        <p>
+            <input type="text" placeholder="Nombre" name="nombre">
+        </p>
+    <p>
+        <input type="text" placeholder="Apellidos" name="apellido">
+    </p>
+    <p>
+        <input type="email" placeholder="E-mail" name="correo">
+    </p>
+    <p>
+        <input type="date" placeholder="Fecha Nacimiento" name="fecha_de_nacimiento">
+    </p>
+    <p>
+        <input type="number" placeholder="Ingrese tu DNI" name="dni">
+    </p>
+    <p>
+        <input type="tel" placeholder="Telefono" name="telefono">
+    </p>
+    <p>
+        <input type="password" placeholder="Ingresa tu clave" name="password">
+    </p>
+    <p>Genero</p>
+    <p>
+        <label for="">Masculino
+            <input type="radio" name="genero" value="masculino">
+        </label>
+    </p>
+    <p>
+        <label for="">Femenino
+            <input type="radio" name="genero" value="femenino">
+        </label>
+    </p>
+    <p>Paises</p>
+    <select name="" id="">
+        <option value="" disabled selected>Seleccion Pais</option>
+        <option value="pe">Perú</option>
+        <option value="ar">Argentina</option>
+        <option value="ch">Chile</option>
+        <option value="ve">Venezuela</option>
+    </select>
+   
+    <p>Ciudad</p>
+    <select name="" id="">
+        <option value="Lima">Lima</option>
+        <option value="Arequipa">Arequipa</option>
+        <option value="Piura">Piura</option>
+        <option value="Tacna">Tacna</option>
+        <option value="Ica">Ica</option>
+    </select>
+
+    <p>Cursos</p>
+    <p>Javascript <input type="checkbox" name="curso_1"></p>
+    <p>HTML <input type="checkbox" name="curso_2"></p>
+    <p>CSS <input type="checkbox" name="curso_3"></p>
+    <p>React JS <input type="checkbox" name="curso_4"></p>
+    <p>Next JS <input type="checkbox" name="curso_5"></p>
+
+    <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
