@@ -14,3 +14,84 @@ h1{
     color: yellowgreen;
     font-size: 24px;
 }
+
+button{
+    background-color: blue;
+    padding: 10px;
+    border-radius: 20px;
+    width: 150px;
+    height: 50px;
+    border: none;
+    transition: all 2s ease;
+}
+
+button:hover{
+    background-color: aquamarine;
+    
+}
+
+.pseudo-clase-hover{
+    font-size: 20px;
+}
+.pseudo-clase-hover:hover{
+    color: aqua;
+    cursor: pointer;
+   
+}
+
+.pseudo-clase-link-hover{
+    text-decoration: none;
+}
+
+.pseudo-clase-link-hover:hover{
+    text-decoration: underline;
+}
+
+.pseudo-clase-link-hover:active{
+    font-size: 18px;
+    color: orange;
+}
+
+.pseudo-clase-link-hover:focus{
+    color: violet;
+    border: 2px dotted #444;
+}
+
+.hijos-pseudo p:nth-child(4){
+    background-color: blueviolet;
+}
+
+.hijos-pseudo p:nth-child(2n-1){
+    background-color: green;
+}
+
+.prueba-before::before{
+    content: 'hola';
+    color: red;
+    font-size: 30px;
+}
+
+.prueba-after::after{
+    content: 'bye';
+    color: blue;
+    font-size: 30px;
+}
+
+.prueba-first-letter{
+    color: red;
+    text-decoration: underline;
+}
+
+.input1:required{
+    border: 1px solid red;
+}
+
+.input1:valid{
+    background-color: blue;
+    color: white;
+}
+
+.input1:invalid{
+    background-color:burlywood ;
+    color: white;
+}

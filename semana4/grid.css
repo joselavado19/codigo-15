@@ -1,0 +1,117 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: Helvetica, sans serif;
+}
+/*.container{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 100px 50px 20px 70px;
+}
+
+.container div{
+    border: solid;
+}*/
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display: grid;
+    grid-template-areas:
+     "header menu menu"
+     "hero hero hero"
+     "main empty image"
+     "main empty extra"
+     "banner banner banner";
+     justify-items: stretch;
+     align-items: stretch;
+     justify-content: space-evenly;
+     align-content: space-evenly;
+     height: 100vh;
+     background-color: pink;
+     grid-gap: 10px;
+
+}
+
+.header{
+    background-color: rgb(72, 72, 200);
+    grid-area: header;
+    justify-self: end;
+    /*height: 5vh;*/
+}
+
+.menu{
+    background-color: rgb(235, 71, 56);
+    grid-area: menu;
+    justify-self: start;
+}
+.hero{
+    background-color: rgb(172, 172, 233);
+    grid-area: hero;
+    justify-self: stretch;
+   /* height: 60vh;*/
+}
+.main{
+    background-color: rgb(16, 16, 70);
+    grid-area: main;
+    /*height: 25vh;*/
+}
+.empty{
+    background-color: rgb(255, 255, 255);
+    grid-area: empty;
+}
+
+.image{
+    background-color: rgb(169, 242, 203);
+    color: black;
+    grid-area: image;
+}
+
+.extra{
+    background-color: rgb(111, 29, 166);
+    grid-area: extra;
+    
+}
+.banner{
+    background-color: rgb(227, 242, 132);
+    grid-area: banner;
+    
+}
+
+
+@media only screen and (max-width: 600px) {
+    .container{
+        display: grid;
+        grid-template-areas:
+         "header"
+         "menu"
+         "hero"
+         "main"
+         "banner"
+         "extra"
+         "image"
+         "empty";
+    
+    }
+
+
+   
+    .main{
+       
+        height: 20vh !important;
+    }
+   
+    .container div{
+        height: 10vh;
+    }
+    
+   
+    
+}

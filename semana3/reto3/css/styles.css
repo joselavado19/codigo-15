@@ -1,0 +1,218 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: "Ubuntu", sans-serif;
+  }
+  
+  /* hacer un mini tailwind: es decir crear clases genericas y reutilizarlas */
+  .flex {
+    display: flex;
+  }
+  
+  .radius-md {
+    border-radius: 20px;
+  }
+  
+  .p-20 {
+    padding: 20px;
+  }
+  
+  .p-25 {
+    padding: 25px;
+  }
+  
+  .container {
+    background-color: hsl(0, 0%, 74%);
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .container__box {
+    background-color: #fff;
+    height: 70vh;
+    width: 70%;
+    gap: 60px;
+  }
+  
+  .container__box > div:first-child {
+    width: 25%;
+    background: url("../assets/images/bg-sidebar-desktop.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .text-white{
+    color: #fff;
+  }
+
+  .uppercase{
+    text-transform: uppercase;
+  }
+
+  .step__container{
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  .step__circle{
+    border: solid #fff 1px;
+    padding: 9px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: block;
+    text-align: center;
+   
+    cursor: pointer;
+  }
+
+  .step__circle:hover{
+    color: #000;
+    background-color: hsl(206, 94%, 87%);
+  }
+
+  .step__title{
+    
+    color: hsl(217, 100%, 97%);
+    font-size: 13px;
+
+  }
+
+  .step__description{
+    
+    font-weight: bold;
+    margin-top: 5px;
+    letter-spacing: 1px;
+    
+  }
+
+  .container__info{
+   
+  }
+
+  .title__info{
+    font-size: 36px;
+  }
+
+  .description__info{
+    margin-top: 10px;
+    color: hsl(217, 100%, 97%);
+  }
+
+  .container__input{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    margin-top: 20px;
+  }
+
+  .container__input > input{
+    font-family: "Ubuntu", sans-serif;
+    font-size: 16px;
+    padding: 10px;
+    border: solid 1px  hsl(229, 24%, 87%);
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .container__input > input:hover{
+    border: solid 1px hsl(243, 100%, 62%);
+  }
+
+  .container__input >span{
+    color: hsl(213, 96%, 18%);
+  }
+
+  .mibutton{
+    margin-top: 25px;
+    text-align: right;
+  }
+  .container__button{
+   
+    color:  hsl(229, 24%, 87%);
+    background-color: hsl(213, 96%, 18%);
+   
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    padding: 10px 20px;
+    font-family: "Ubuntu", sans-serif;
+    
+    
+  }
+  @media only screen and (max-width: 600px) {
+    .p-25{
+     padding: 0; 
+    }
+
+    .p-20{
+      padding: 0;
+    }
+
+    .radius-md{
+      border-radius: 0;
+    }
+
+    .container{
+      height: auto;
+
+    }
+    
+    .container__box{
+    flex-direction: column;
+    width: 100%;
+    border-radius: 0%;
+    gap: 0;
+    background-color: hsl(225, 9%, 82%);
+    height: 100vh;
+   max-height: 100vh;
+   min-height: 100vh;
+    }
+
+    
+
+    .step__container{
+      
+      margin-bottom: 0;
+    }
+
+    .step__title{
+      display: none;
+    }
+    .step__description{
+      display: none;
+    }
+
+    .step__circle{
+      width: 10px;
+      height: 10px;
+    }
+
+    .container__box > div:first-child {
+      width: 100%;
+      background: url(../assets/images/bg-sidebar-mobile.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      min-height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container__info{
+      
+      width: 80%;
+      margin: auto;
+      padding: 20px;
+      margin-top: -30px;
+      background-color: #fff;
+      border-radius: 15px;
+    }
+
+  }
