@@ -1,46 +1,44 @@
-import { useState } from "react";
-import { Button,Card, TextField} from "../../components";
+import { useForm } from "../../hooks/useForm";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { saveUser } from "../../slices/userSlice";
+import { Card, Form } from "../../components";
+import { create } from "../../services";
+import { inputs } from "./form";
 
-export default function SignUp(){
+export default function SignUp() {
+  const { errors, values, handleInputChange, validateIfValuesHasEmpty } =
+    useForm({
+      name: "",
+      lastname: "",
+      email: "",
+      password: "",
+    });
 
-    const [values, setValues] = useState({
-        name :"",
-        lastname:"",
-        email:"",
-        password:"",
-    })
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-    
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    if (!validateIfValuesHasEmpty()) return;
+    const user = await create(values, "users");
+    dispatch(saveUser(user));
+    navigate("/");
+  };
 
-    const handleInputChange = (event) => {
-
-        setValues({
-            ...values,
-            [event.target.name]:event.target.value
-        })
-    }
-
-
-    return(
-        <>
-        <div className="h-screen flex items-center justify-center max-w-md mx-auto">
-        <Card>
-            <h1 className="text-2xl font-semibold my-5">Crear cuenta</h1>
-            <form action="" className="mb-5 flex flex-col gap-5">
-                    <TextField 
-                    placeholder="Ingrese su nombre" 
-                    value={values.name} 
-                    name="name"
-                    onChange={handleInputChange}
-                    />
-                    <TextField placeholder="Ingrese su apellido" value={values.lastname} name="lastname" />
-                    <TextField placeholder="Ingrese su email" type="email" value={values.email} name="email" />
-                    <TextField placeholder="Ingrese su password" type="password" value={values.password} name="password" />
-                    <Button text="Crear Cuenta" className="rounded-l w-full" variant="secondary"/>
-                
-            </form>
-        </Card>
-        </div>
-        </>
-    );
+  return (
+    <div className="h-screen flex items-center justify-center max-w-md mx-auto">
+      <Card>
+        <h1 className="text-2xl font-semibold my-5">Crear Cuenta</h1>
+        <Form
+          inputs={inputs}
+          errors={errors}
+          handleFormSubmit={handleFormSubmit}
+          handleInputChange={handleInputChange}
+          textButton="Crear cuenta"
+          values={values}
+        />
+      </Card>
+    </div>
+  );
 }

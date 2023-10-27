@@ -11,6 +11,10 @@ import { useEffect, useState } from "react";
 
 import { read } from "../../services";
 
+
+const valueFormatter = (number) =>
+  `S/. ${new Intl.NumberFormat("us").format(number).toString()}`;
+
 export default function CardBase() {
   const [kpis, setKpis] = useState([]);
 
@@ -30,13 +34,13 @@ export default function CardBase() {
           <Flex alignItems="start">
             <div className="truncate">
               <Text>{item.title}</Text>
-              <Metric className="truncate">S/. {item.metric}</Metric>
+              <Metric className="truncate">{valueFormatter(item.metric)}</Metric>
             </div>
             <BadgeDelta deltaType={item.deltaType}>{item.delta}</BadgeDelta>
           </Flex>
           <Flex className="mt-4 space-x-2">
-            <Text className="truncate">{`${item.progress}% (${item.metric})`}</Text>
-            <Text className="truncate">{item.target}</Text>
+            <Text className="truncate">{`${item.progress}% (${valueFormatter(item.metric)})`}</Text>
+            <Text className="truncate">{valueFormatter(item.target)}</Text>
           </Flex>
           <ProgressBar value={item.progress} className="mt-2" />
         </Card>

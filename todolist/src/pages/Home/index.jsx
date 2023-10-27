@@ -1,27 +1,32 @@
 import { useState, useEffect } from "react";
 import { read } from "../../services";
-import { Card  ,FormTask , Task} from "../../components";
+import { Card, FormTask, Task } from "../../components";
+import { useSelector } from "react-redux";
+import { selectorUserId } from "../../selectors/userSelector";
 
-export default function Home(){
-    const [tasks, setTasks] = useState([]);
 
-const getTasks = async () =>{
-  const response = await read("task");
-  setTasks(response);
-};
+export default function Home() {
+  const [tasks, setTasks] = useState([]);
+  const userId = useSelector(selectorUserId);
 
-useEffect(()=>{
-  getTasks();
-},[]);
+  const getTasks = async () => {
+    const response = await read("task");
+    setTasks(response.filter((task)=> task.user_id === userId));
+  };
 
-    return (
-        <div className="mt-10">
-          <Card>
-            <FormTask getTasks={getTasks} />
-          </Card>
-         {
-          tasks.length > 0 && tasks.map((task)=><Task key={task.id} task={task} getTasks={getTasks}/>)
-         }
-        </div>
-      );
+  useEffect(() => {
+    getTasks();
+  }, []);
+
+  return (
+    <div className="mt-10">
+      <Card>
+        <FormTask getTasks={getTasks} />
+      </Card>
+      {tasks.length > 0 &&
+        tasks.map((task) => (
+          <Task key={task.id} task={task} getTasks={getTasks} />
+        ))}
+    </div>
+  );
 }

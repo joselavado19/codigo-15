@@ -10,6 +10,7 @@ import { Card,
 import { HandThumbDownIcon, HandThumbUpIcon } from "@heroicons/react/24/solid";
 import CardBase from "../CardBase";
 import BarChartBase from "../BarChartBase";
+import ChartLineBase from "../ChartLineBase";
 
 export default function DashBoardBase(){
     return(
@@ -17,8 +18,8 @@ export default function DashBoardBase(){
         
         <TabGroup className="mt-6">
         <TabList>
-          <Tab>Indicadores</Tab>
-          <Tab>Detalle</Tab>
+          <Tab>Mes Actual</Tab>
+          <Tab>Historico de Ventas</Tab>
         </TabList>
         <TabPanels>
           <TabPanel>
@@ -35,9 +36,9 @@ export default function DashBoardBase(){
           </TabPanel>
           <TabPanel>
             <div className="mt-6">
-              <Card>
-                <div className="h-96" />
-              </Card>
+             
+                <ChartLineBase/>
+              
             </div>
           </TabPanel>
         </TabPanels>

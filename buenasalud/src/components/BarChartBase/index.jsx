@@ -1,44 +1,65 @@
 import { Card, Title, BarChart, Subtitle } from "@tremor/react";
+import { readEspecialidad } from "../../services";
+import { useEffect, useState } from "react";
 
-const chartdata = [
-  {
-    name: "Topico",
-    "Ventas por Especialidades": 2488,
-    "Ventas por Mes": 1508,
-  },
-  {
-    name: "Dermatologia",
-    "Ventas por Especialidades": 1445,
-    "Ventas por Mes": 1808,
-  },
-  {
-    name: "Cardiologia",
-    "Ventas por Especialidades": 743,
-    "Ventas por Mes": 408,
-  },
-];
+const valueFormatter = (number) =>
+  `S/. ${new Intl.NumberFormat("pen").format(number).toString()}`;
 
-const valueFormatter = (number) => `S/. ${new Intl.NumberFormat("us").format(number).toString()}`;
+  const customTooltip = ({ payload, active }) => {
+    if (!active || !payload) return null;
+    return (
+      <div className="w-56 rounded-tremor-default text-tremor-default bg-tremor-background p-2 shadow-tremor-dropdown border border-tremor-border">
+        {payload.map((category, idx) => (
+          <div key={idx} className="flex flex-1 space-x-2.5">
+            <div className={`w-1 flex flex-col bg-${category.color}-500 rounded`} />
+            <div className="space-y-1">
+              <p className="text-tremor-content">{category.dataKey}</p>
+            
+              <p className="font-medium text-tremor-content-emphasis">{valueFormatter(category.value)}</p>  
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  };
 
 export default function BarChartBase() {
+  const [especialidad, setEspecialidad] = useState([]);
+
+  const getEspecialidad = async () => {
+    const response = await readEspecialidad();
+    setEspecialidad(response);
+  };
+
+  useEffect(() => {
+    getEspecialidad();
+  }, []);
+
+  const chartdata = especialidad.map(({especialidad, total}) => {
+    return {
+      name: especialidad,
+      "Ventas por Especialidad": total,
+     
+    };
+  });
+
   return (
-   
-      <Card>
-        <Title>Number of species threatened with extinction (2021)</Title>
-        <Subtitle>
-          The IUCN Red List has assessed only a small share of the total known
-          species in the world.
-        </Subtitle>
-        <BarChart
-          className="mt-6"
-          data={chartdata}
-          index="name"
-          categories={["Ventas por Especialidades", "Ventas por Mes"]}
-          colors={["blue"]}
-          valueFormatter={valueFormatter}
-          yAxisWidth={54}
-        />
-      </Card>
-    
+    <Card>
+      <Title>Ventas por Especialidad (2023)</Title>
+      <Subtitle>
+        Lista de todas las especialidad que realizaron ventas.
+      </Subtitle>
+      <BarChart
+        className="mt-6"
+        data={chartdata}
+        index="name"
+        categories={["Ventas por Especialidad"]}
+        colors={["blue"]}
+        valueFormatter={valueFormatter}
+        yAxisWidth={80}
+        maxValue={60000}
+        customTooltip={customTooltip}
+      />
+    </Card>
   );
 }

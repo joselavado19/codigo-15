@@ -1,5 +1,6 @@
 import  { useState } from "react";
 import { HomeIcon,  XCircleIcon,QueueListIcon } from "@heroicons/react/24/solid";
+import { Link } from "react-router-dom";
 
 export default function SideBar() {
   const [showMenu, setShowMenu] = useState(false);
@@ -10,7 +11,7 @@ export default function SideBar() {
         className={`bg-terciary-300 h-full fixed lg:static w-[80%] md:w-[40%] lg:w-full z-50 transition-all duration-300
                  ${showMenu ? "left-0" : "-left-full"} `}
       >
-        {/* Profile */}
+        {/* perfil */}
         <div className="flex flex-col items-center justify-center p-8 gap-2 h-[30vh]">
           <img
             className="w-65 h-18 object-cover "
@@ -29,41 +30,41 @@ export default function SideBar() {
             flex flex-col justify-between gap-8"
         >
           <nav className="flex flex-col gap-8">
-            <a
-              href="#"
+            <Link
+              to="/"
               className="flex items-center gap-4 text-white py-2 px-4 
                 rounded-xl hover:bg-primary-900/50 transition-colors"
             >
                <HomeIcon className="h-6 w-6" />
               Home
-            </a>
+            </Link>
 
-            <a
-              href="#"
+            <Link
+               to="/graficos"
               className="flex items-center gap-4 text-white py-2 px-4 
                 rounded-xl hover:bg-primary-900/50 transition-colors"
             >
               <HomeIcon className="h-6 w-6" />
               Indicadores
-            </a>
+            </Link>
 
-            <a
-              href="#"
+            <Link
+              to="/"
               className="flex items-center gap-4 text-white py-2 px-4 
                 rounded-xl hover:bg-primary-900/50 transition-colors"
             >
               <HomeIcon className="h-6 w-6" />
               Graficos
-            </a>
+            </Link>
 
-            <a
-              href="#"
+            <Link
+              to="/"
               className="flex items-center gap-4 text-white py-2 px-4 
                 rounded-xl hover:bg-primary-900/50 transition-colors"
             >
               <HomeIcon className="h-6 w-6" />
               Resultados KPI
-            </a>
+            </Link>
           </nav>
           <div className="bg-terciary-900 text-white p-4 rounded-xl">
             <p className="text-gray-400">Problemas</p>
