@@ -7,7 +7,3 @@ export const selectorUser = createSelector(
   ({ user }) => user.data
 );
 
-export const selectorUserId = createSelector(
-  globalState,
-  ({ user }) => user.data.id
-);

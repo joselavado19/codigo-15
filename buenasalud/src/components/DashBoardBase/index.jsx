@@ -1,49 +1,36 @@
-import { Card,
-    Grid,
-    Title,
-    Text,
-    Tab,
-    TabList,
-    TabGroup,
-    TabPanel,
-    TabPanels,} from "@tremor/react";
-import { HandThumbDownIcon, HandThumbUpIcon } from "@heroicons/react/24/solid";
-import CardBase from "../CardBase";
+import {
+  Tab,
+  TabList,
+  TabGroup,
+  TabPanel,
+  TabPanels,
+} from "@tremor/react";
 import BarChartBase from "../BarChartBase";
+import CardBase from "../CardBase";
 import ChartLineBase from "../ChartLineBase";
 
-export default function DashBoardBase(){
-    return(
-        <>
-        
-        <TabGroup className="mt-6">
+export default function DashBoardBase() {
+  return (
+    <>
+      <TabGroup className="mt-6">
         <TabList>
           <Tab>Mes Actual</Tab>
           <Tab>Historico de Ventas</Tab>
         </TabList>
         <TabPanels>
           <TabPanel>
-           
-            
-              <CardBase/>
-            
-          
+            <CardBase />
             <div className="mt-6">
-              
-                <BarChartBase/>
-            
+              <BarChartBase />
             </div>
           </TabPanel>
           <TabPanel>
             <div className="mt-6">
-             
-                <ChartLineBase/>
-              
+              <ChartLineBase />
             </div>
           </TabPanel>
         </TabPanels>
       </TabGroup>
-
-        </>
-    )
+    </>
+  )
 }

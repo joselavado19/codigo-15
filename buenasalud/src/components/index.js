@@ -1,10 +1,11 @@
 export { default as Button } from "./Button";
 export { default as BarChartBase } from "./BarChartBase";
-export {default as Card} from "./Card";
+export { default as Card } from "./Card";
 export { default as CardBase } from "./CardBase";
 export { default as ChartLineBase } from "./ChartLineBase";
 export { default as DashBoardBase } from "./DashBoardBase";
 export { default as Form } from "./Form";
 export { default as Header } from "./Header";
+export { default as ToLink } from "./ToLink";
 export { default as SideBar } from "./SideBar";
 export { default as TextField } from "./TextField";

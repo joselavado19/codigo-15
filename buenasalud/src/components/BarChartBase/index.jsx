@@ -24,18 +24,18 @@ const valueFormatter = (number) =>
   };
 
 export default function BarChartBase() {
-  const [especialidad, setEspecialidad] = useState([]);
+  const [rowVentasEspcialidad, setrowVentasEspcialidad] = useState([]);
 
   const getEspecialidad = async () => {
-    const response = await readEspecialidad();
-    setEspecialidad(response);
+    const response = await readEspecialidad("rowVentasEspcialidad");
+    setrowVentasEspcialidad(response);
   };
 
   useEffect(() => {
     getEspecialidad();
   }, []);
 
-  const chartdata = especialidad.map(({especialidad, total}) => {
+  const chartdata = rowVentasEspcialidad.map(({especialidad, total}) => {
     return {
       name: especialidad,
       "Ventas por Especialidad": total,

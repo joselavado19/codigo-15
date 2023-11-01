@@ -9,10 +9,11 @@ export default function Router() {
         <Routes>
           <Route element={<MainLayout />}>
             <Route path="/" element={<HomePage />} />
+            <Route path="/graficos" element={<GraficosPage />} />
           </Route>
           <Route element={<AuthLayout />}>
             <Route path="/signin" element={<SignInPage />} />
-            <Route path="/graficos" element={<GraficosPage />} />
+           
           </Route>
         </Routes>
       </BrowserRouter>

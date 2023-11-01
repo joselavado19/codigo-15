@@ -1,7 +1,7 @@
 export const inputs = [
     {
-      placeholder: "Email",
-      name: "email",
+      placeholder: "Ingrese Username",
+      name: "username",
     },
     {
       placeholder: "Password",

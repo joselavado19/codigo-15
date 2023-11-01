@@ -1,24 +1,19 @@
-const URLApi =
-  "http://localhost/clinica_gestionguadalupana/integracion/rowVentasDia";
-const URLApiEsp =
-  "http://localhost/clinica_gestionguadalupana/integracion/rowVentasEspcialidad";
-const URLApiMeses =
-  "http://localhost/clinica_gestionguadalupana/integracion/gridVentasCompara";
 
-export async function read() {
-  const response = await fetch(URLApi);
-  const data = await response.json();
-  return data;
+import { makeHttpRequest } from "./config";
+
+
+export async function read(url) {
+  return await makeHttpRequest({ url });
 }
 
-export async function readEspecialidad() {
-  const response = await fetch(URLApiEsp);
-  const data = await response.json();
-  return data;
+export async function readEspecialidad(url) {
+  return await makeHttpRequest({ url });
 }
 
-export async function readVentasMeses() {
-  const response = await fetch(URLApiMeses);
-  const data = await response.json();
-  return data;
+export async function readVentasMeses(url) {
+  return await makeHttpRequest({ url });
+}
+
+export async function leerAcceso(body, url) {
+  return await makeHttpRequest({ url, body, method: "POST" });
 }

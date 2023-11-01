@@ -16,11 +16,11 @@ const valueFormatter = (number) =>
   `S/. ${new Intl.NumberFormat("us").format(number).toString()}`;
 
 export default function CardBase() {
-  const [kpis, setKpis] = useState([]);
+  const [rowVentasDia, setrowVentasDia] = useState([]);
 
   const getKpis = async () => {
-    const response = await read();
-    setKpis(response);
+    const response = await read("rowVentasDia");
+    setrowVentasDia(response);
   };
 
   useEffect(() => {
@@ -29,7 +29,7 @@ export default function CardBase() {
 
   return (
     <Grid numItemsMd={2} numItemsLg={4} className="gap-6">
-      {kpis.map((item) => (
+      {rowVentasDia.map((item) => (
         <Card key={item.title}>
           <Flex alignItems="start">
             <div className="truncate">

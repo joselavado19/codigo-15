@@ -9,21 +9,21 @@ import { findUser, showError } from "../../utils";
 export default function SignIn() {
   const { values, errors, handleInputChange, validateIfValuesHasEmpty } =
     useForm({
-      email: "",
+      username: "",
       password: "",
     });
 
-   const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!validateIfValuesHasEmpty()) return;
 
-    const user = await findUser("email", values.email);
+    const user = await findUser( { username:values.username , clave:values.password} );
 
-    if (!user || user.password !== values.password) {
-      showError("Email y/o password incorrecto");
+    if (!user || user.error === true) {
+      showError("Username y/o password incorrecto");
       return;
     }
 

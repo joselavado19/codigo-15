@@ -1,5 +1,11 @@
-import {  DashBoardBase, Header, SideBar } from "../../components";
+import { DashBoardBase, Header, SideBar } from "../../components";
+import { useSelector } from "react-redux";
+import { selectorUser } from "../../selectors/userSelector";
+
 export default function Home() {
+
+  const user = useSelector(selectorUser);
+  if (!user) return <Navigate to="/" />;
   return (
     <>
       <div className="grid lg:grid-cols-4 xl:grid-cols-6 min-h-screen">

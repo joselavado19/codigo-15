@@ -1,12 +1,9 @@
-import { read } from "../services";
+import { leerAcceso } from "../services";
 import Swal from "sweetalert2";
 
-export async function findUser(field, value) {
-  const users = await read("users");
-
-  return users.find(
-    (user) => user[field].toLowerCase() === value.toLowerCase()
-  );
+export async function findUser(body) {
+  const users = await leerAcceso(body, "verificaAccesos");
+  return users;
 }
 
 export function showError(text) {

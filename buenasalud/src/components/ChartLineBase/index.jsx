@@ -7,18 +7,18 @@ const valueFormatter = (number) => `S/. ${new Intl.NumberFormat("pen").format(nu
 
 export default function ChartLineBase() {
 
-    const [ventasMes, setVentasMes] = useState([]);
+    const [gridVentasCompara, setgridVentasCompara] = useState([]);
 
     const getVentasMes = async () => {
-      const response = await readVentasMeses();
-      setVentasMes(response);
+      const response = await readVentasMeses("gridVentasCompara");
+      setgridVentasCompara(response);
     };
   
     useEffect(() => {
         getVentasMes();
     }, []);
   
-    const chartdata = ventasMes.map(({periodo, total}) => {
+    const chartdata = gridVentasCompara.map(({periodo, total}) => {
       return {
         year: periodo,
         "Ventas por Mes": total,
