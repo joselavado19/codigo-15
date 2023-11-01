@@ -1,4 +1,4 @@
-const baseUrl = "http://45.169.94.103/clinica_gestionguadalupana/integracion/";
+const baseUrl = "http://localhost/clinica_gestionguadalupana/integracion/";
 
 export async function makeHttpRequest({ url, id, body, method = "GET" }) {
   const finalUrl = id ? `${url}/${id}` : url;
