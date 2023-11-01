@@ -38,7 +38,7 @@ export default function SignIn() {
           <div className="flex justify-center pt-5 pb-10">
             <img
               className="w-65 h-18 object-cover "
-              src="./src/assets/image/logo.png"
+              src="./logo.png"
               alt="Logo Buena Salud"
             />
           </div>
